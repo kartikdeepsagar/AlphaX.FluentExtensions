@@ -44,6 +44,7 @@ namespace AlphaX.FluentExtensions
         private static DataTable ToDataTableInternal<T>(this IEnumerable<T> source, IEnumerable<Mapping> mappings)
         {
             var table = new DataTable();
+            table.TableName = typeof(T).Name;
 
             if (!mappings.Any())
                 return table;

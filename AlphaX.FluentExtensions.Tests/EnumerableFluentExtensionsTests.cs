@@ -1,27 +1,10 @@
 ﻿using NUnit.Framework;
-using AlphaX.FluentExtensions;
-using System;
 using System.Linq;
-using System.Collections.Generic;
 
 namespace AlphaX.FluentExtensions.Tests
 {
-    public class EnumerableFluentExtensionsTests
+    public class EnumerableFluentExtensionsTests : BaseExtensionsTest
     {
-        private List<UserModel> _usersList;
-
-        [OneTimeSetUp]
-        public void Setup()
-        {
-            var rnd = new Random();
-            _usersList = Enumerable.Range(1, 50).Select(x => new UserModel()
-            {
-                Id = x,
-                Age = rnd.Next(18, 30),
-                Name = $"Name {x}"
-            }).ToList();
-        }
-
         [TestCase(5, 2, 5)]
         [TestCase(10, 3, 10)]
         [TestCase(10, 20, 0)]
